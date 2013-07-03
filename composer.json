@@ -27,7 +27,7 @@
 			"./Module.php"
 		]
 	},
-	"minimum-stability" : "dev",
+	"minimum-stability" : "beta",
 	"support" : {
 		"email" : "info@ilovecode.it"
 	},
