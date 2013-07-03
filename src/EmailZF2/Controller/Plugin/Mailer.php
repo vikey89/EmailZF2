@@ -29,7 +29,7 @@ class Mailer extends AbstractPlugin
         $this->_renderer = $renderer;
     }
 
-    public function send($to, $subject, $viewModel)
+    public function send($data = array(), $viewModel)
     {
         if ($viewModel instanceof ModelInterface) {
             $body = $this->renderModel($viewModel);
@@ -51,11 +51,20 @@ class Mailer extends AbstractPlugin
         $body_html->setParts(array($text, $html));
 
         $mail = new Mail\Message();
-        $mail->setEncoding("UTF-8")
-             ->setBody($body_html)
-             ->setFrom($this->_from_mail, $this->_from_name)
-             ->addTo($to)
-             ->setSubject($subject);
+        $mail->setEncoding("UTF-8");
+        $mail->setBody($body_html);
+        $mail->setFrom($this->_from_mail, $this->_from_name);
+        $mail->addTo($data['to']);
+        if(isset($data['cc']))
+        {
+        	$mail->addCc($data['cc']);
+        }
+        if(isset($data['bcc']))
+        {
+        	$mail->addBcc($data['bcc']);
+        }
+        $mail->addReplyTo($this->_from_mail, $this->_from_name);
+        $mail->setSubject($data['subject']);
 
         return $this->_transport->send($mail);
     }
