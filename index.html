@@ -51,6 +51,10 @@
 
 <p>Version 1.0</p>
 
+<h2>
+<a name="italiano" class="anchor" href="#italiano"><span class="octicon octicon-link"></span></a><strong>ITALIANO</strong>
+</h2>
+
 <p>Modulo che consente l'invio di email in zend framework 2 con o senza template.</p>
 
 <h2>
@@ -157,6 +161,120 @@
 
 <h2>
 <a name="template" class="anchor" href="#template"><span class="octicon octicon-link"></span></a>Template</h2>
+
+<div class="highlight"><pre><span class="o">&lt;</span><span class="nx">h4</span><span class="o">&gt;</span><span class="nx">Hi</span><span class="p">,</span> <span class="o">&lt;?=</span> <span class="nv">$fullname</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/h4&gt;</span>
+</pre></div>
+
+<h2>
+<a name="english" class="anchor" href="#english"><span class="octicon octicon-link"></span></a><strong>ENGLISH</strong>
+</h2>
+
+<p>Module which allows sending emails in Zend Framework 2 with or without template.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>For the installation use composer <a href="http://getcomposer.org" title="composer - package manager">composer</a>.</p>
+
+<div class="highlight"><pre>php composer.phar require email-zf2/emailzf2:dev-master
+</pre></div>
+
+<p>If you have installed composer:</p>
+
+<div class="highlight"><pre>composer require email-zf2/emailzf2:dev-master
+</pre></div>
+
+<h2>
+<a name="post-installation" class="anchor" href="#post-installation"><span class="octicon octicon-link"></span></a>Post Installation</h2>
+
+<p>Once the installation with composer pass to the configuration.</p>
+
+<ul>
+<li>Add the module of <code>config/application.config.php</code> under array <code>modules</code>, insert <code>EmailZF2</code>
+</li>
+<li>Create a file named <code>email.local.php</code> under <code>config/autoload/</code>. </li>
+<li>Add the following lines to the file you just created:</li>
+</ul><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'credentials'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'from_mail'</span> <span class="o">=&gt;</span> <span class="s1">'support@domain.com'</span><span class="p">,</span>
+            <span class="s1">'from_name'</span> <span class="o">=&gt;</span> <span class="s1">'yourname'</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="c1">//use smtp or sendmail</span>
+        <span class="s1">'transport'</span> <span class="o">=&gt;</span> <span class="s1">'sendmail'</span><span class="p">,</span>
+        <span class="s1">'smtp'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'host'</span> <span class="o">=&gt;</span> <span class="s1">'smtp.domain.com'</span><span class="p">,</span>
+            <span class="s1">'port'</span> <span class="o">=&gt;</span> <span class="mi">587</span><span class="p">,</span>
+            <span class="s1">'connection_class'</span> <span class="o">=&gt;</span> <span class="s1">'login'</span><span class="p">,</span>
+            <span class="s1">'connection_config'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'ssl'</span>      <span class="o">=&gt;</span> <span class="s1">'tls'</span><span class="p">,</span>
+                <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'youremail'</span><span class="p">,</span>
+                <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'yourpassword'</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>In this way we have just created our configuration file. In this file we can choose whether to send emails with sendmail installed on the server or send email using smtp. If you want to leave the sendmail configuration file so as it is.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Just create any module in a folder to save the template to use for emails. By convention we put the folder in the Application Module.</p>
+
+<ul>
+<li>create a folder <code>emails</code> under <code>Application/view/</code>.</li>
+<li>create a template <code>hello_world.phtml</code>.</li>
+<li>Come in any Controller and ship our test message, in this case for test use <code>IndexController</code> under module <code>Application</code>. </li>
+</ul><h2>
+<a name="controller-1" class="anchor" href="#controller-1"><span class="octicon octicon-link"></span></a>Controller</h2>
+
+<ul>
+<li>Normal version</li>
+</ul><div class="highlight"><pre><span class="nv">$view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ViewModel</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                <span class="s1">'fullname'</span> <span class="o">=&gt;</span> <span class="s1">'Vincenzo Provenza'</span><span class="p">,</span>
+            <span class="p">));</span>
+<span class="nv">$view</span><span class="o">-&gt;</span><span class="na">setTerminal</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$view</span><span class="o">-&gt;</span><span class="na">setTemplate</span><span class="p">(</span><span class="s1">'Application/view/emails/hello_world'</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mailerZF2</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'to'</span> <span class="o">=&gt;</span> <span class="s1">'email@domain.it'</span><span class="p">,</span>
+    <span class="s1">'subject'</span> <span class="o">=&gt;</span> <span class="s1">'This is subject'</span>
+<span class="p">),</span> <span class="nv">$view</span><span class="p">);</span>
+</pre></div>
+
+<ul>
+<li>With Version Cc</li>
+</ul><div class="highlight"><pre><span class="nv">$view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ViewModel</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                <span class="s1">'fullname'</span> <span class="o">=&gt;</span> <span class="s1">'Vincenzo Provenza'</span><span class="p">,</span>
+            <span class="p">));</span>
+<span class="nv">$view</span><span class="o">-&gt;</span><span class="na">setTerminal</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$view</span><span class="o">-&gt;</span><span class="na">setTemplate</span><span class="p">(</span><span class="s1">'Application/view/emails/hello_world'</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mailerZF2</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'to'</span> <span class="o">=&gt;</span> <span class="s1">'email@domain.com'</span><span class="p">,</span>
+    <span class="s1">'cc'</span> <span class="o">=&gt;</span> <span class="s1">'email2@domain.com'</span>
+    <span class="s1">'subject'</span> <span class="o">=&gt;</span> <span class="s1">'This is subject'</span>
+<span class="p">),</span> <span class="nv">$view</span><span class="p">);</span>
+</pre></div>
+
+<ul>
+<li>With Version Cc &amp; Bcc</li>
+</ul><div class="highlight"><pre><span class="nv">$view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ViewModel</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                <span class="s1">'fullname'</span> <span class="o">=&gt;</span> <span class="s1">'Vincenzo Provenza'</span><span class="p">,</span>
+            <span class="p">));</span>
+<span class="nv">$view</span><span class="o">-&gt;</span><span class="na">setTerminal</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$view</span><span class="o">-&gt;</span><span class="na">setTemplate</span><span class="p">(</span><span class="s1">'Application/view/emails/hello_world'</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mailerZF2</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'to'</span> <span class="o">=&gt;</span> <span class="s1">'email@domain.com'</span><span class="p">,</span>
+    <span class="s1">'cc'</span> <span class="o">=&gt;</span> <span class="s1">'email2@domain.com'</span>
+    <span class="s1">'bcc'</span> <span class="o">=&gt;</span> <span class="s1">'email3@domain.com'</span>
+    <span class="s1">'subject'</span> <span class="o">=&gt;</span> <span class="s1">'This is subject'</span>
+<span class="p">),</span> <span class="nv">$view</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="template-1" class="anchor" href="#template-1"><span class="octicon octicon-link"></span></a>Template</h2>
 
 <div class="highlight"><pre><span class="o">&lt;</span><span class="nx">h4</span><span class="o">&gt;</span><span class="nx">Hi</span><span class="p">,</span> <span class="o">&lt;?=</span> <span class="nv">$fullname</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/h4&gt;</span>
 </pre></div>
