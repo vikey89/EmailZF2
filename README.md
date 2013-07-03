@@ -16,6 +16,7 @@ Post Installazione
 ------------
 Una volta effettuata l'installazione con composer passiamo alla configurazione.
 
+- Aggiungiamo il modulo su `config/application.config.php` sotto l'array `modules`, isneriamo `EmailZF2`
 - Crea un file nominato `email.local.php` sotto `config/autoload/`. 
 - Aggiungi le seguenti righe al file appena creato:
 
