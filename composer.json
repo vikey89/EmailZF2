@@ -1,5 +1,5 @@
 {
-	"name" : "EmailZF2/email",
+	"name" : "email-zf2/emailzf2",
 	"description" : "EmailZF2 is a ZF2 module to manage the process of sending emails with templates.",
 	"type" : "zf2-module",
 	"authors" : [{
