@@ -1,5 +1,5 @@
 {
-	"name" : "EmailZF2/EmailZF2",
+	"name" : "EmailZF2/email",
 	"description" : "EmailZF2 is a ZF2 module to manage the process of sending emails with templates.",
 	"type" : "zf2-module",
 	"authors" : [{
@@ -11,7 +11,8 @@
 	],
 	"keywords" : [
 		"email zf2",
-		"module zf2"
+		"module zf2",
+		"sennd email"
 	],
 	"homepage" : "https://github.com/vikey89/EmailZF2",
 	"require" : {
@@ -26,7 +27,7 @@
 			"./Module.php"
 		]
 	},
-	"minimum-stability" : "beta",
+	"minimum-stability" : "dev",
 	"support" : {
 		"email" : "info@ilovecode.it"
 	},
