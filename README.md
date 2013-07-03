@@ -11,6 +11,10 @@ Per l'installazione usa composer [composer](http://getcomposer.org "composer - p
 ```sh
 php composer.phar require email-zf2/emailzf2:dev-master
 ```
+Se avete composer installato:
+```sh
+composer require email-zf2/emailzf2:dev-master
+```
 
 Post Installazione
 ------------
