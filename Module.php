@@ -49,7 +49,7 @@ class Module implements AutoloaderProviderInterface
 	    			$renderer = new \Zend\View\Renderer\PhpRenderer();
 	    			$resolver = new \Zend\View\Resolver\TemplatePathStack();
 	    			$resolver->setPaths(array(
-	    				__DIR__ . '/../'
+	    				__DIR__ . '/../../../module/'
 	    			));
 	    			$renderer->setResolver($resolver);
 	    			$controllerPlugin = new Controller\Plugin\Mailer($renderer);
