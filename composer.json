@@ -1,0 +1,39 @@
+{
+	"name" : "EmailZF2/EmailZF2",
+	"description" : "EmailZF2 is a ZF2 module to manage the process of sending emails with templates.",
+	"type" : "zf2-module",
+	"authors" : [{
+			"name" : "Vincenzo Provenza",
+			"email" : "info@ilovecode.it",
+			"homepage" : "http://ilovecode.it/",
+			"role" : "Developer"
+		}
+	],
+	"keywords" : [
+		"email zf2",
+		"module zf2"
+	],
+	"homepage" : "https://github.com/vikey89/EmailZF2",
+	"require" : {
+		"php" : ">=5.3.3",
+		"zendframework/zendframework" : "2.*"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"EmailZF2" : "src"
+		},
+		"classmap" : [
+			"./Module.php"
+		]
+	},
+	"minimum-stability" : "beta",
+	"support" : {
+		"email" : "info@ilovecode.it"
+	},
+	"repositories" : [{
+			"name" : "EmailZF2",
+			"type" : "git",
+			"url" : "https://github.com/vikey89/EmailZF2.git"
+		}
+	]
+}
