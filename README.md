@@ -59,13 +59,50 @@ Basta creare in qualsiasi modulo una cartella per salvare i template da usare pe
 
 Controller
 ------------
+
+- Versione Normale
+
+```php
+$view = new ViewModel(array(
+    			'fullname' => 'Vincenzo Provenza',
+            ));
+$view->setTerminal(true);
+$view->setTemplate('Application/view/emails/hello_world');
+$this->mailerZF2()->send(array(
+	'to' => 'email@domain.it',
+	'subject' => 'This is subject'
+), $view);
+```
+
+- Versione Con Cc
+
 ```php
 $view = new ViewModel(array(
         		'fullname' => 'Vincenzo Provenza',
-));
+            ));
 $view->setTerminal(true);
 $view->setTemplate('Application/view/emails/hello_world');
-$this->mailerZF2()->send('youremail@domain.com', 'Subject: Hello World!', $view);
+$this->mailerZF2()->send(array(
+	'to' => 'email@domain.com',
+    'cc' => 'email2@domain.com'
+	'subject' => 'This is subject'
+), $view);
+```
+
+- Versione Con Cc & Bcc
+
+```php
+$view = new ViewModel(array(
+            	'fullname' => 'Vincenzo Provenza',
+            ));
+$view->setTerminal(true);
+$view->setTemplate('Application/view/emails/hello_world');
+$this->mailerZF2()->send(array(
+	'to' => 'email@domain.com',
+    'cc' => 'email2@domain.com'
+    'bcc' => 'email3@domain.com'
+	'subject' => 'This is subject'
+), $view);
 ```
 
 Template
