@@ -12,7 +12,7 @@
 	"keywords" : [
 		"email zf2",
 		"module zf2",
-		"sennd email"
+		"send email"
 	],
 	"homepage" : "https://github.com/vikey89/EmailZF2",
 	"require" : {
