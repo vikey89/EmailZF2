@@ -1,6 +1,7 @@
 EmailZF2
 ========
 Version 1.0
+[![Total Downloads](https://poser.pugx.org/rinomau/mva-crud/downloads.png)](https://packagist.org/packages/email-zf2/emailzf2)
 
 ITALIANO
 ------------
