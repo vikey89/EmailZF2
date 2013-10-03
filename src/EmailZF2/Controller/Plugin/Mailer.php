@@ -63,7 +63,13 @@ class Mailer extends AbstractPlugin
         {
         	$mail->addBcc($data['bcc']);
         }
-        $mail->addReplyTo($this->_from_mail, $this->_from_name);
+        if(isset($data['replyTo']))
+        {
+            $mail->addReplyTo($data['replyTo'], $data['replyNameTo']);
+        } else {
+            $mail->addReplyTo($this->_from_mail, $this->_from_name);
+        }
+        
         $mail->setSubject($data['subject']);
 
         return $this->_transport->send($mail);
