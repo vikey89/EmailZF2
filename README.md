@@ -85,7 +85,7 @@ $view->setTerminal(true);
 $view->setTemplate('Application/view/emails/hello_world');
 $this->mailerZF2()->send(array(
 	'to' => 'email@domain.com',
-    'cc' => 'email2@domain.com'
+    	'cc' => 'email2@domain.com',
 	'subject' => 'This is subject'
 ), $view);
 ```
@@ -100,8 +100,8 @@ $view->setTerminal(true);
 $view->setTemplate('Application/view/emails/hello_world');
 $this->mailerZF2()->send(array(
 	'to' => 'email@domain.com',
-    'cc' => 'email2@domain.com'
-    'bcc' => 'email3@domain.com'
+    'cc' => 'email2@domain.com',
+    'bcc' => 'email3@domain.com',
 	'subject' => 'This is subject'
 ), $view);
 ```
@@ -116,8 +116,8 @@ $view->setTerminal(true);
 $view->setTemplate('Application/view/emails/hello_world');
 $this->mailerZF2()->send(array(
     'to' => 'email@domain.com',
-    'replyTo' => 'mariorossi@domain.com'
-    'replyNameTo' => 'Mario Rossi'
+    'replyTo' => 'mariorossi@domain.com',
+    'replyNameTo' => 'Mario Rossi',
     'subject' => 'This is subject'
 ), $view);
 ```
