@@ -72,7 +72,7 @@ class Module implements AutoloaderProviderInterface
 	    					$controllerPlugin->setMailTransport($transport);
 	    				break;
 
-	    				case 'sentmail':
+	    				case 'sendmail':
 	    					default:
 	    						$transport = new \Zend\Mail\Transport\Sendmail();
 	    						$controllerPlugin->setMailTransport($transport);

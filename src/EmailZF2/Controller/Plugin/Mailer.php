@@ -69,6 +69,11 @@ class Mailer extends AbstractPlugin
         } else {
             $mail->addReplyTo($this->_from_mail, $this->_from_name);
         }
+        if(isset($data['dkimSign']))
+        {
+            $signer = $this->getController()->getServiceLocator()->get('DkimSigner');
+            $signer->signMessage($mail);
+        }
         
         $mail->setSubject($data['subject']);
 
